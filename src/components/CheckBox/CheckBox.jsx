@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 
-const CheckBox = ({ status, onChange }) => {
+const CheckBox = ({ status, onChange, isDisabled = false }) => {
   const isChecked = status === 1;
   const isHalfChecked = status === 0.5;
 
@@ -23,6 +23,7 @@ const CheckBox = ({ status, onChange }) => {
         checked={ isChecked }
         onChange={ onChange }
         ref={ checkboxRef }
+        disabled={ isDisabled }
       />
     </div>
   );
@@ -31,6 +32,7 @@ const CheckBox = ({ status, onChange }) => {
 CheckBox.propTypes = {
   status: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
+  isDisabled: PropTypes.bool,
 };
 
 export default CheckBox;

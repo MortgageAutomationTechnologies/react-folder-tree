@@ -31,11 +31,12 @@ const TreeNode = ({
   name,
   checked,
   isOpen,
+  isDisabled,
   children,
   ...restData
 }) => {
   const nodeData = {
-    path, name, checked, isOpen, ...restData,
+    path, name, checked, isOpen, isDisabled, ...restData,
   };
 
   const {
@@ -189,6 +190,7 @@ const TreeNode = ({
           <CheckBox
             status={ checked }
             onChange={ handleCheckBoxChange }
+            disabled={ nodeData.isDisabled }
           />
         )}
 
@@ -237,6 +239,7 @@ TreeNode.propTypes = {
   name: PropTypes.string.isRequired,
   checked: PropTypes.number.isRequired,
   isOpen: PropTypes.bool,
+  isDisabled: PropTypes.bool,
 
   children: PropTypes.array,
 };

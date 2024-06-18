@@ -8,6 +8,7 @@ A versatile and customizable react treeview library. Features:
 ✅ inline add, modify, and delete tree nodes  
 ✅ checkbox with half check (indeterminate check)  
 ✅ read-only mode
+✅ disable individual node checkboxes
 
 It uses [use-tree-state](https://www.npmjs.com/package/use-tree-state) hook internally for convenient state management.
 ### Quick Preview
@@ -48,6 +49,7 @@ Initial tree state is an object that describes a nested tree node structure, whi
   name: 'root node',  
   checked (optional): 0 (unchecked, default) | 0.5 (half checked) | 1(checked),
   isOpen (optional): true (default) | false,
+  isDisabled (optional): true | false (default),
   children (optional): [array of treenode],
 
   // internal keys (auto generated), plz don't include them in the initial data
@@ -76,6 +78,7 @@ const treeState = {
       children: [
         { name: 'children 2-1 [not checked]', checked: 0 },
         { name: 'children 2-2 [checked]', checked: 1 },
+        { name: 'children 2-3 [not checked] [disabled]', checked: 0, isDisabled: true },
       ],
     },
   ],
